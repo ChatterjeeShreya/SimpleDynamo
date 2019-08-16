@@ -184,7 +184,6 @@ public class SimpleDynamoProvider extends ContentProvider {
 		while (ctr<=2)
 		{
 			selectedPort = String.valueOf(valueset[counter%keyset.length]);
-			//Log.e("hell", valueset[counter].toString());
 			Socket socket = null;
 			try {
 				socket = new Socket(InetAddress.getByAddress(new byte[]{10, 0, 2, 2}),
@@ -294,9 +293,9 @@ public class SimpleDynamoProvider extends ContentProvider {
                         Log.e("reponse", response);
 
                         if (response.equals("norows")) {
-                            Log.e("yey", "no rows");
+                            Log.e("y", "no rows");
                         } else {
-                            Log.e("yey", response);
+                            Log.e("y", response);
                             String[] queryres = response.split("-");
                             //Log.e("after", String.valueOf(queryres.length));
 
@@ -422,7 +421,7 @@ public class SimpleDynamoProvider extends ContentProvider {
                     mcursor.addRow(new Object[]{keyvalue[0], keyvalue[1]});
 
                 } catch (IOException e) {
-                    Log.e("finallyfuckoff", hashkey + "-" + selection + "-" + Integer.parseInt(ports.get((counter + 1) % ports.size())) / 2);
+                    Log.e("final", hashkey + "-" + selection + "-" + Integer.parseInt(ports.get((counter + 1) % ports.size())) / 2);
                     try {
                         Socket socket = new Socket(InetAddress.getByAddress(new byte[]{10, 0, 2, 2}),
                                 Integer.parseInt(ports.get((counter + 1) % ports.size())));
